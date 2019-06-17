@@ -1,0 +1,209 @@
+﻿@model List<WebApplicationForA4.Models.Agent>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+                body {
+                    font-family: "Lato", sans-serif;
+                }
+
+        .sidenav {
+            height: 100%;
+            width: 98px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 66px;
+        }
+
+                    .sidenav a {
+                        padding: 6px 8px 6px 16px;
+                        text-decoration: none;
+                        font-size: 25px;
+                        color: #818181;
+                        display: block;
+                    }
+
+                        .sidenav a:hover {
+                            color: #f1f1f1;
+                        }
+
+                .main {
+                    margin-left: 160px; 
+                    font-size: 18px; 
+                    padding: 50px 10px;
+                }
+
+             
+    </style>
+</head>
+<body>
+
+    <div class="sidenav">
+        <a href="#about">Agent</a>
+       
+    </div>
+
+    <div class="main">
+
+        <div>
+            <form method="POST" class="form-horizontal" enctype="multipart/form-data"></form>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-save my-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-center"><strong>Agent Entity</strong></h2>
+                        <form method="POST" class="form-save" enctype="multipart/form-data">
+                            <div class="form-label-group">
+                                <label for="inputCode"> Code/ID </label>
+                                <input type="text" id="CodeTextBox" name="Code" class="form-control" placeholder="Agent Code" required autofocus>
+                                <span id="MySpan" style="color: red"></span>
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputName"> Name</label>
+                                <input type="text" id="Name" name="Name" class="form-control" placeholder="Agent Name" required autofocus>
+
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputAddress"> Makeup Plan</label>
+                                <input type="text" id="MakeupPlan" name="MakeupPlan" class="form-control" placeholder="Makeup Plan" required autofocus>
+
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputEmail"> Email</label>
+                                <input type="text" id="Email" name="Email" class="form-control" placeholder="Customer Email" required autofocus>
+
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputNumber">Mobile</label>
+                                <input type="text" id="Mobile" name="Mobile" class="form-control" placeholder="Mobile" required autofocus>
+
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputNumber">Phone</label>
+                                <input type="text" id="Phone" name="Phone" class="form-control" placeholder="Phone" required autofocus>
+
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputNumber">Address</label>
+                                <input type="text" id="Address" name="Address" class="form-control" placeholder="Address" required autofocus>
+
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputContactName">City</label>
+                                <input type="text" id="City" name="City" class="form-control" placeholder="City" required autofocus>
+
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputNumber">State</label>
+                                <input type="text" id="State" name="State" class="form-control" placeholder="State" required autofocus>
+
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputContactName">Post Code</label>
+                                <input type="text" id="PostCode" name="PostCode" class="form-control" placeholder="Post Code" required autofocus>
+
+                            </div>
+
+                            <br />
+                            <button class="btn btn-lg btn-info btn-block text-uppercase" type="submit">Save</button>
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+@if (Model != null && Model.Count > 0)
+{
+    <div>
+        @{var sl = 0;}
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sl</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Makeup Plan</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Post Code</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var agent in Model)
+                {
+                    <tr>
+                        <td>@(++sl)</td>
+                        <td>@agent.Code</td>
+                        <td>@agent.Name</td>
+                        <td>@agent.MakeupPlan</td>
+                        <td>@agent.Email</td>
+                        <td>@agent.Mobile</td>
+                        <td>@agent.Phone</td>
+                        <td>@agent.Address</td>
+                        <td>@agent.City</td>
+                        <td>@agent.State</td>
+                        <td>@agent.PostCode</td>
+
+
+                        <td>
+                            @Html.ActionLink("Edit", "Update", "Agent", new { id = agent.Id }, new { @target = "_self" })
+                            @Html.ActionLink("Delete", "Delete", "Agent", new { id = agent.Id }, new { @target = "_self" })
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+
+    $("#CodeTextBox").change(function () {
+
+        var codeValue = $(this).val();
+        if (codeValue != undefined && codeValue != "") {
+
+            //-------------Key---Value
+            var params = { code: codeValue };
+            $.ajax({
+                type: "POST",
+                url: "../Agent/IsCodeNoExist",
+                contentType: "application/Json; charset=utf-8",
+                data: JSON.stringify(params),
+                success: function (rData) {
+                    if (rData !== false && rData != undefined) {
+                        $("#MySpan").text(rData);
+                    } else {
+                        $("#MySpan").text("");
+                    }
+                }
+
+
+            });
+        }
+    });
+</script>

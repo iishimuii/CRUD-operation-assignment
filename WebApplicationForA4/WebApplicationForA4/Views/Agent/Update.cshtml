@@ -1,0 +1,140 @@
+﻿
+@model WebApplicationForA4.Models.Agent
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: "Lato", sans-serif;
+            }
+
+            .sidenav {
+                height: 100%;
+                width: 160px;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #111;
+                overflow-x: hidden;
+                padding-top: 66px;
+            }
+
+            .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+            }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+            .main {
+                margin-left: 160px; 
+                font-size: 18px; 
+                padding: 50px 10px;
+            }
+
+                
+        </style>
+    </head>
+    <body>
+
+        <div class="sidenav">
+            <a href="#about">Agent</a>
+       
+        </div>
+
+        <div class="main">
+            <div>
+                <form method="POST" class="form-horizontal" enctype="multipart/form-data"></form>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-save my-5">
+                        <div class="card-body">
+                            <h4 class="card-title text-center"><strong>Update Agent Entity</strong></h4>
+                            <form method="POST" class="form-save" enctype="multipart/form-data">
+                                <div class="form-label-group">
+                                    <label for="inputCode"> Code</label>
+                               
+                                    @Html.TextBoxFor(p => p.Code, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputName"> Name</label>
+                               
+                                    @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputAddress"> Makeup Plan</label>
+                              
+                                    @Html.TextBoxFor(p => p.MakeupPlan, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputEmail"> Email</label>
+                               
+                                    @Html.TextBoxFor(p => p.Email, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputNumber">Mobile</label>
+                                
+                                    @Html.TextBoxFor(p => p.Mobile, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputNumber">Phone</label>
+                                
+                                    @Html.TextBoxFor(p => p.Phone, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputNumber">Address</label>
+                               
+                                    @Html.TextBoxFor(p => p.Address, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputContactName">City</label>
+                                
+                                    @Html.TextBoxFor(p => p.City, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputNumber">State</label>
+                                
+                                    @Html.TextBoxFor(p => p.State, new { @class = "form-control" })
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputContactName">Post Code</label>
+                                
+                                    @Html.TextBoxFor(p => p.PostCode, new { @class = "form-control" })
+                                </div>
+
+                                <br />
+                                <button class="btn btn-lg btn-info btn-block text-uppercase" type="submit">Update</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
